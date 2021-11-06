@@ -1,0 +1,146 @@
+header {
+  width: 100%;
+  display: flex;
+  padding-top: 68px;
+  padding-left: 77px;
+  position: absolute;
+  background-color: inherit;
+  color: #000000;
+  font-family: "Roboto Mono", monospace;
+  z-index: 10;
+
+  @include tab {
+    width: 90%;
+    padding: 25px 0;
+    margin: 0 auto;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #fff;
+    position: static;
+  }
+}
+
+.navi {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.header-logo {
+  font-size: 3.8rem;
+
+  @include tab {
+    font-size: 2.2rem;
+  }
+}
+
+.header-menu {
+  display: flex;
+  width: 417px;
+  align-items: center;
+  padding-left: 20px;
+  
+  @include tab {
+    width: auto;
+    height: 250px;
+    position: absolute;
+    opacity: 0;
+    left: 0;
+    top: 45%;
+    transform: translate(-100%, -500%);
+    z-index: 10;
+    padding-left: 0;
+    transition: all 500ms ease;
+  }
+
+  & ul {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.8rem;
+    color: #707070;
+
+    @include tab {
+      flex-direction: column;
+      height: 100%;
+    }
+
+    & li {
+      position: relative;
+      display: inline-block;
+      transition: all 300ms 0s ease;
+      overflow: hidden;
+      
+      &::after {
+        content: "";
+        position: absolute;
+        display: inline-block;
+        width: 100%;
+        height: 2px;
+        left: 0;
+        bottom: 1px;
+        background-color: #000000;
+        transform: translateX(-101%);
+        transition: all 300ms 0s ease;
+      }
+      
+      &:hover {
+        color: #000000;
+
+        &::after {
+          transform: none;
+        }
+      }
+    }
+  }
+}
+
+
+.ham {
+  display: none;
+
+  @include tab {
+    
+    width: 16px;
+    height: 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    z-index: 10;
+
+    span {
+      display: inline-block;
+      height: 2px;
+      background-color: #000;
+      transition: all 500ms ease;
+      &:nth-child(3) {
+        width: 50%;
+      }
+    }
+  }
+}
+#ham-btn-check:checked ~ .header-menu {
+  transform: translate(-100%, 0);
+  opacity: 1;
+}
+
+#ham-btn-check:checked ~ .ham span:nth-child(1) {
+  width: 115%;
+  transform-origin: left;
+  transform: rotate(45deg);
+}
+
+#ham-btn-check:checked ~ .ham span:nth-child(2) {
+  opacity: 0;
+}
+
+#ham-btn-check:checked ~ .ham span:nth-child(3) {
+  width: 115%;
+  transform-origin: left;
+  transform: rotate(-45deg);
+}
+
+
+#ham-btn-check {
+  display: none;
+}

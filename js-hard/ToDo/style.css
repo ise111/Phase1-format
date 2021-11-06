@@ -5,3 +5,25 @@ body {
 .lists {
   list-style: none;
 }
+
+li {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 10px;
+}
+
+button {
+  margin-left: 5px;
+}
+
+.invisible {
+  display: none;
+}
+
+.btn-invisible {
+  display: none;
+}
+
+.temporaryVisible {
+  display: block !important;
+}

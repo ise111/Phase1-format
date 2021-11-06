@@ -1,0 +1,80 @@
+#access {
+    background-color: #A193861F;
+
+    & .title {
+        width: 85%;
+        text-align: left;
+        padding: 90px 0 6px 0;
+        margin: 0 auto;
+
+        @include tab {
+            width: 89%;
+            padding-bottom: 50px;
+        }
+    }
+}
+
+
+.access-wrap {
+    width: 100%;
+    display: flex;
+    padding-bottom: 70px;
+
+    @include tab {
+        flex-direction: column-reverse;
+        padding-bottom: 60px;
+    }
+}
+
+.access-lft {
+    width: 40%;
+    background-color: #D0C5BA;
+    font-family: "Roboto Mono", monospace;
+
+    @include tab {
+        width: 100%;
+    }
+}
+
+.access-info {
+    width: 64%;
+    margin: 100px auto;
+
+    @include tab {
+        width: 89%;
+        margin: 30px auto 60px;
+    }
+
+    
+    &__store {
+        font-size: 2.4rem;
+        color: #00000038;
+        margin-bottom: 30px;
+    }
+}
+
+.access-detail {
+    font-size: 1.6rem;
+    color: #fff;
+    
+    & ul {
+        height: 140px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+.access-map {
+    width: 60%;
+
+    @include tab {
+        width: 100%;
+        height: 230px;
+    }
+
+    & iframe {
+        width: 100%;
+        height: 100%;
+    }
+}

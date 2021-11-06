@@ -1,0 +1,71 @@
+@mixin pc {
+  @media (min-width: 1025px) {
+    @content;
+  }
+}
+
+@mixin tab {
+  @media (max-width: 1024px) {
+    @content;
+  }
+}
+
+@mixin sp {
+  @media (max-width: 599px) {
+    @content;
+  }
+}
+
+$sky: #06beb6;
+$navy: #283c86;
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 12px;
+  line-height: 1.67;
+}
+
+.inner {
+  width: 80%;
+  margin: 0 auto;
+  padding: 90px 0;
+
+  @include sp {
+    width: 89%;
+    padding: 50px 0;
+  }
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.8rem;
+  font-style: italic;
+  margin-bottom: 60px;
+
+  @include sp {
+    margin-bottom: 40px;
+  }
+
+  &--b {
+    font-weight: bold;
+  }
+
+  &::before {
+    display: inline-block;
+    content: "";
+    width: 3em;
+    border-top: 1px solid black;
+    margin-right: 2rem;
+  }
+
+  &::after {
+    @extend .title::before;
+    margin-right: 0;
+    margin-left: 2rem;
+  }
+}

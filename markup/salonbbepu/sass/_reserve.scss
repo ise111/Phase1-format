@@ -1,0 +1,83 @@
+#reserve {
+    height: 340px;
+    position: relative;
+
+    @include sp {
+        height: 280px;
+    }
+}
+
+.line {
+    width: 83%;
+    border-top: 1px solid #7070704D;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    @include sp {
+        width: 90%;
+        top: 25%;
+    }
+}
+
+.reserve-content {
+    width: 83%;
+    position: absolute;
+    top: 82%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: "Roboto Mono", monospace;
+    display: flex;
+    justify-content: space-between;
+
+    @include sp {
+        width: 89%;
+        display: flex;
+        flex-direction: column-reverse;
+        height: 150px;
+        top: 75%;
+        align-items: center;
+
+    }
+}
+
+.reserve-logo-wrap {
+    display: flex;
+    align-items: center;
+
+    @include sp {
+        width: 100%;
+        justify-content: space-between;
+    }
+}
+
+.reserve-logo {
+    font-size: 3.2rem;
+    color: #7070704D;
+}
+
+.fab {
+    font-size: 2rem;
+}
+
+.fa-twitter {
+    margin-left: 25px;
+
+    @include sp {
+        margin-left: 0;
+    }
+}
+
+.fa-facebook-square {
+    margin-left: 10px;
+}
+
+.reserve-btn {
+    width: 185px;
+    height: 37px;
+    font-size: 1.8rem;
+    color: #707070;
+    border-radius: 0;
+    border: 1px solid #707070;
+}

@@ -1,0 +1,48 @@
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  color: #fff;
+  background: inherit;
+  position: absolute;
+  z-index: 20;
+
+  nav {
+    width: 45%;
+
+    @include tab {
+      display: none;
+    }
+
+    ul {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 1.2rem;
+    }
+  }
+}
+
+.hd-logo {
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.ham {
+  display: none;
+
+  @include tab {
+    display: flex;
+    flex-flow: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 14px;
+
+    span {
+      display: inline-block;
+      height: 1px;
+      background-color: #fff;
+    }
+  }
+}
