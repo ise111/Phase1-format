@@ -16,8 +16,8 @@ const middleSlot = document.querySelector('.middle-slot');
 
 
 num1.value = 0;
-num2.value = 9;
-num3.value = 8;
+num2.value = 0;
+num3.value = 0;
 num4.value = 9;
 num5.value = 9;
 num6.value = 9;
@@ -54,7 +54,10 @@ function rotate(num) {
 
 // 結果判定関数
 function result() {
-
+    if (!startBtn.disabled) {
+        alert('だから反則です！');
+        return;
+    }
     if (num1.value === num2.value && num2.value === num3.value) {
         alert('おめでとう！！');
     } else if ((num1.value + 1) % 10 === num2.value && (num2.value + 1) % 10 === num3.value) {
@@ -64,6 +67,7 @@ function result() {
     } else {
         alert('再挑戦');
     }
+    startBtn.disabled = false;
 }
 
 // 全ての数字が変化する関数
@@ -73,9 +77,17 @@ function start() {
     clearInterval(timer1);
     clearInterval(timer2);
     clearInterval(timer3);
+    clearInterval(timer4);
+    clearInterval(timer5);
+    clearInterval(timer6);
+    clearInterval(timer7);
+    clearInterval(timer8);
+    clearInterval(timer9);
     stopBtn1.disabled = false;
     stopBtn2.disabled = false;
     stopBtn3.disabled = false;
+
+    startBtn.setAttribute('disabled', true);
     
     timer1 = setInterval(function() {
         rotate(num1);
@@ -117,6 +129,10 @@ stopBtn1.addEventListener('click', function() {
     clearInterval(timer4);
     clearInterval(timer7);
     stopBtn1.setAttribute('disabled', true);
+
+    if (!startBtn.disabled) {
+        alert('それは反則です');
+    }
     if (stopBtn2.disabled && stopBtn3.disabled) {
         result();
     }
@@ -129,6 +145,9 @@ stopBtn2.addEventListener('click', function() {
     clearInterval(timer8);
     stopBtn2.setAttribute('disabled', true);
 
+    if (!startBtn.disabled) {
+        alert('それは反則です');
+    }
     if (stopBtn1.disabled && stopBtn3.disabled) {
         result();
     }
@@ -140,7 +159,10 @@ stopBtn3.addEventListener('click', function() {
     clearInterval(timer6);
     clearInterval(timer9);
     stopBtn3.setAttribute('disabled', true);
-
+    
+    if (!startBtn.disabled) {
+        alert('それは反則です');
+    }
     if (stopBtn2.disabled && stopBtn1.disabled) {
         result();
     }
