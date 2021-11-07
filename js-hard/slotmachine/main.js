@@ -131,7 +131,7 @@ stopBtn1.addEventListener('click', function() {
     stopBtn1.setAttribute('disabled', true);
 
     if (!startBtn.disabled) {
-        alert('それは反則です');
+        alert('それは反則です。スタートを押してください。');
     }
     if (stopBtn2.disabled && stopBtn3.disabled) {
         result();
@@ -146,7 +146,7 @@ stopBtn2.addEventListener('click', function() {
     stopBtn2.setAttribute('disabled', true);
 
     if (!startBtn.disabled) {
-        alert('それは反則です');
+        alert('それは反則です。スタートを押してください。');
     }
     if (stopBtn1.disabled && stopBtn3.disabled) {
         result();
@@ -161,7 +161,7 @@ stopBtn3.addEventListener('click', function() {
     stopBtn3.setAttribute('disabled', true);
     
     if (!startBtn.disabled) {
-        alert('それは反則です');
+        alert('それは反則です。スタートを押してください。');
     }
     if (stopBtn2.disabled && stopBtn1.disabled) {
         result();
