@@ -3,8 +3,6 @@ const addBtn = document.querySelector('.add-btn');
 const toDoList = document.getElementById('todo');
 const editBtn = document.querySelector('.edit-btn');
 const editCompBtn = document.querySelector('.edit-comp-btn');
-let taskNum = 0;
-let editCount = 0;
 
 
 addBtn.addEventListener('click', e => {
@@ -13,24 +11,16 @@ addBtn.addEventListener('click', e => {
     } else {
         console.log(addTask.value);
         let newTask = document.createElement('li');
-        newTask.classList.add(`task${taskNum}`);
         newTask.textContent = addTask.value;
         toDoList.appendChild(newTask);
     
         let completeBtn = document.createElement('button');
         completeBtn.classList.add(`compBtn`);
-        completeBtn.classList.add(`btn${taskNum}`);
         completeBtn.textContent = '完了';
         newTask.appendChild(completeBtn);
-        taskNum++;
-        // console.log(document.querySelectorAll('.compBtn'))
-        let compBtns = document.querySelectorAll('.compBtn');
-        // console.log(newTask)
-        // console.log(Array.from(compBtns).slice(-1)[0])
+        let compBtns = document.querySelectorAll('compBtn');
         let compBtn = Array.from(compBtns).slice(-1)[0];
         compBtn.addEventListener('click', e =>{
-                console.log(compBtn.parentNode);
-                // compBtn.parentNode.remove();
                 compBtn.parentNode.classList.add('invisible');
                 compBtn.classList.add('btn-invisible');
         });
@@ -39,7 +29,6 @@ addBtn.addEventListener('click', e => {
 });
 
 editBtn.addEventListener('click', e => {
-    // if (editCount === 0) {
 
         editBtn.classList.add('btn-invisible');
         editCompBtn.classList.remove('btn-invisible');
@@ -62,13 +51,6 @@ editBtn.addEventListener('click', e => {
             });
         });
 
-    // } else {
-
-        // alert('ボタンを連続で押さないでください');
-
-    // }
-    // editCount ++;
-
     editCompBtn.addEventListener('click', e => {
 
         editBtn.classList.remove('btn-invisible');
@@ -81,7 +63,6 @@ editBtn.addEventListener('click', e => {
             compTask.classList.remove('temporaryVisible');
 
         });
-        editCount = 0;
     });
 });
 
