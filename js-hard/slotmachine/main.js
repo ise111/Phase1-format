@@ -1,4 +1,3 @@
-
 const num1 = document.getElementById('nowTime');
 const num2 = document.getElementById('nowTime2');
 const num3 = document.getElementById('nowTime3');
@@ -36,14 +35,12 @@ num9.textContent = num9.value;
 let timer1;
 let timer2;
 let timer3;
-let timer4;
-let timer5;
-let timer6;
-let timer7;
-let timer8;
-let timer9;
+let sec = 100;
 
-console.log((num2.value + 1) % 10);
+stopBtn1.setAttribute('disabled', true);
+stopBtn2.setAttribute('disabled', true);
+stopBtn3.setAttribute('disabled', true);
+
 
 // 0~9に変化する関数
 function rotate(num) {
@@ -54,10 +51,7 @@ function rotate(num) {
 
 // 結果判定関数
 function result() {
-    if (!startBtn.disabled) {
-        alert('だから反則です！');
-        return;
-    }
+
     if (num1.value === num2.value && num2.value === num3.value) {
         alert('おめでとう！！');
     } else if ((num1.value + 1) % 10 === num2.value && (num2.value + 1) % 10 === num3.value) {
@@ -77,12 +71,6 @@ function start() {
     clearInterval(timer1);
     clearInterval(timer2);
     clearInterval(timer3);
-    clearInterval(timer4);
-    clearInterval(timer5);
-    clearInterval(timer6);
-    clearInterval(timer7);
-    clearInterval(timer8);
-    clearInterval(timer9);
     stopBtn1.disabled = false;
     stopBtn2.disabled = false;
     stopBtn3.disabled = false;
@@ -91,31 +79,20 @@ function start() {
     
     timer1 = setInterval(function() {
         rotate(num1);
-    }, 100);
+        rotate(num4);
+        rotate(num7);
+    }, sec);
     timer2 = setInterval(function() {
         rotate(num2);
-    }, 100);
+        rotate(num5);
+        rotate(num8);
+    }, sec);
     timer3 = setInterval(function() {
         rotate(num3);
-    }, 100);
-    timer4 = setInterval(function() {
-        rotate(num4);
-    }, 100);
-    timer5 = setInterval(function() {
-        rotate(num5);
-    }, 100);
-    timer6 = setInterval(function() {
         rotate(num6);
-    }, 100);
-    timer7 = setInterval(function() {
-        rotate(num7);
-    }, 100);
-    timer8 = setInterval(function() {
-        rotate(num8);
-    }, 100);
-    timer9 = setInterval(function() {
         rotate(num9);
-    }, 100);
+    }, sec);
+
 }
 
 
@@ -126,13 +103,8 @@ startBtn.addEventListener('click', start);
 // ストップボタン1
 stopBtn1.addEventListener('click', function() {
     clearInterval(timer1);
-    clearInterval(timer4);
-    clearInterval(timer7);
-    stopBtn1.setAttribute('disabled', true);
+    stopBtn1.disabled = true;
 
-    if (!startBtn.disabled) {
-        alert('それは反則です。スタートを押してください。');
-    }
     if (stopBtn2.disabled && stopBtn3.disabled) {
         result();
     }
@@ -141,13 +113,8 @@ stopBtn1.addEventListener('click', function() {
 // ストップボタン2
 stopBtn2.addEventListener('click', function() {
     clearInterval(timer2);
-    clearInterval(timer5);
-    clearInterval(timer8);
-    stopBtn2.setAttribute('disabled', true);
+    stopBtn2.disabled = true;
 
-    if (!startBtn.disabled) {
-        alert('それは反則です。スタートを押してください。');
-    }
     if (stopBtn1.disabled && stopBtn3.disabled) {
         result();
     }
@@ -156,13 +123,8 @@ stopBtn2.addEventListener('click', function() {
 // ストップボタン3
 stopBtn3.addEventListener('click', function() {
     clearInterval(timer3);
-    clearInterval(timer6);
-    clearInterval(timer9);
-    stopBtn3.setAttribute('disabled', true);
+    stopBtn3.disabled = true;
     
-    if (!startBtn.disabled) {
-        alert('それは反則です。スタートを押してください。');
-    }
     if (stopBtn2.disabled && stopBtn1.disabled) {
         result();
     }
