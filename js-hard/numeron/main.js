@@ -57,25 +57,28 @@ function judge(nums) {
 }
 
 function answer() {
-    eatCount = 0;
-    biteCount = 0;
-    turn --;
     let answerNums = Array.from(setNum.value);
-    
-    if (answerNums[0] === answerNums[1] || answerNums[1] === answerNums[2] || answerNums[2] === answerNums[0]) {
-        alert('同じ数字を入れないでください');
-        setNum.value = '';
-        return;
-    }
     
     if (answerNums.length !== 3) {
         alert('3桁の数字を入力してください');
         setNum.value = '';
+        
+        if (answerNums[0] === answerNums[1] || answerNums[1] === answerNums[2] || answerNums[2] === answerNums[0]) {
+            alert('同じ数字を入れないでください');
+            setNum.value = '';
+            return;
+        }
+        
         return;
     }
     
+    eatCount = 0;
+    biteCount = 0;
+    
     judge(answerNums);
     
+    turn --;
+
     if (turn === 0) {
         alert('ターンを使い切りました。あなたの負けです。');
         turn = 10;
