@@ -12,9 +12,10 @@ let nums = [
     ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9']
 ];
 let cpNums = [];
+remainTurn.textContent = `残り${turn}回です。`;
 
 // cpの数字決定関数
-function randomNum() {
+function randomNums() {
     cpNums = [];
     let cpNumIndex1 = Math.floor(Math.random() * 10);
     let cpNumIndex2 = Math.floor(Math.random() * 10);
@@ -51,12 +52,11 @@ function judge(nums) {
     if (eatCount === 3) {
         alert('クリア！！');
         turn = 10;
-        randomNum();
+        randomNums();
     }
 }
 
-// 答え合わせボタンイベント
-numCheckBtn.addEventListener('click', function() {
+function answer() {
     eatCount = 0;
     biteCount = 0;
     turn --;
@@ -79,14 +79,15 @@ numCheckBtn.addEventListener('click', function() {
     if (turn === 0) {
         alert('ターンを使い切りました。あなたの負けです。');
         turn = 10;
-        randomNum();
+        randomNums();
     }
     remainTurn.textContent = `残り${turn}回です。`;
     setNum.value = '';
-});
+}
+// 答え合わせボタンイベント
+numCheckBtn.addEventListener('click', answer);
 
 
-remainTurn.textContent = `残り${turn}回です。`;
 // 関数呼び出し
-randomNum();
+randomNums();
 
